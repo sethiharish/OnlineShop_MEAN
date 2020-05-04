@@ -1,0 +1,26 @@
+const Category = require("./models/categoryModel");
+const Pie = require("./models/pieModel");
+
+const debugDB = require("debug")("log:db");
+const mongoose = require("mongoose");
+
+const DB = process.env.DB || "mongodb://localhost/onlineshop_mean";
+mongoose
+  .connect(DB, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => debugDB(`Connected to Database at ${DB}`))
+  .catch((error) => debugDB("Error connecting to Database: ", error));
+
+async function purgeDB() {
+  const piesCount = await Pie.find().count();
+  await Pie.deleteMany();
+  debugDB(`Purged Pie Data. Count = ${piesCount}.`);
+
+  const categoriesCount = await Category.find().count();
+  await Category.deleteMany();
+  debugDB(`Purged Category Data. Count = ${categoriesCount}.`);
+}
+
+debugDB("Database purging starting...");
+purgeDB()
+  .then(() => debugDB("Database purging complete."))
+  .catch((error) => debugDB(error));

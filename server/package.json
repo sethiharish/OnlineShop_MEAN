@@ -5,7 +5,9 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "watch": "nodemon app.js"
+    "watch": "nodemon app.js",
+    "seeddb": "node seeddb.js",
+    "purgedb": "node purgedb.js"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +16,7 @@
     "@hapi/joi": "^17.1.1",
     "debug": "^4.1.1",
     "express": "^4.17.1",
+    "mongoose": "^5.9.11",
     "morgan": "^1.10.0"
   },
   "devDependencies": {

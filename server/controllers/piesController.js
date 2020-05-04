@@ -1,24 +1,23 @@
-const { pies, categories } = require("../data");
+const Pie = require("../models/pieModel");
+const Category = require("../models/categoryModel");
 
-const getPies = (req, res) => {
+const getPies = async (req, res) => {
+  const pies = await Pie.find();
   return res.send(pies);
 };
 
-const getPie = (req, res) => {
-  const id = parseInt(req.params.id);
-  const pie = pies.find((p) => p.id === id);
+const getPie = async (req, res) => {
+  const pie = await Pie.findById(req.params.id);
 
   if (!pie) {
-    return res.status(404).send(`Error: Pie Id ${id} not found`);
+    return res.status(404).send(`Error: Pie Id ${req.params.id} not found`);
   }
 
   return res.send(pie);
 };
 
-const createPie = (req, res) => {
-  const category = categories.find(
-    (c) => c.id === parseInt(req.body.categoryId)
-  );
+const createPie = async (req, res) => {
+  const category = await Category.findById(req.body.categoryId);
 
   if (!category) {
     return res
@@ -26,8 +25,7 @@ const createPie = (req, res) => {
       .send(`Error: Category Id ${req.body.categoryId} not found`);
   }
 
-  const pie = {
-    id: pies.length + 1,
+  const pie = new Pie({
     name: req.body.name,
     price: req.body.price,
     shortDescription: req.body.shortDescription,
@@ -36,24 +34,23 @@ const createPie = (req, res) => {
     isPieOfTheWeek: req.body.isPieOfTheWeek,
     imageUrl: req.body.imageUrl,
     thumbnailImageUrl: req.body.thumbnailImageUrl,
-    categoryId: req.body.categoryId,
-  };
-  pies.push(pie);
-  res.set("Location", `${req.baseUrl}/${pie.id}`);
-  return res.status(201).send(pie);
+    categoryId: category.id,
+  });
+
+  const pieResult = await pie.save();
+
+  res.set("Location", `${req.baseUrl}/${pieResult.id}`);
+  return res.status(201).send(pieResult);
 };
 
-const updatePie = (req, res) => {
-  const id = parseInt(req.params.id);
-  const pie = pies.find((p) => p.id === id);
+const updatePie = async (req, res) => {
+  const pie = await Pie.findById(req.params.id);
 
   if (!pie) {
-    return res.status(404).send(`Error: Pie Id ${id} not found`);
+    return res.status(404).send(`Error: Pie Id ${req.params.id} not found`);
   }
 
-  const category = categories.find(
-    (c) => c.id === parseInt(req.body.categoryId)
-  );
+  const category = await Category.findById(req.body.categoryId);
 
   if (!category) {
     return res
@@ -71,19 +68,17 @@ const updatePie = (req, res) => {
   pie.thumbnailImageUrl = req.body.thumbnailImageUrl;
   pie.categoryId = req.body.categoryId;
 
-  return res.send(pie);
+  const pieResult = await pie.save();
+
+  return res.send(pieResult);
 };
 
-const deletePie = (req, res) => {
-  const id = parseInt(req.params.id);
-  const pie = pies.find((p) => p.id === id);
+const deletePie = async (req, res) => {
+  const pie = await Pie.findByIdAndDelete({ _id: req.params.id });
 
   if (!pie) {
-    return res.status(404).send(`Error: Pie Id ${id} not found`);
+    return res.status(404).send(`Error: Pie Id ${req.params.id} not found`);
   }
-
-  const index = pies.indexOf(pie);
-  pies.splice(index, 1);
 
   return res.send(pie);
 };

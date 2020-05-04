@@ -1,55 +1,59 @@
-const { categories } = require("../data");
+const Category = require("../models/categoryModel");
 
-const getCategories = (req, res) => {
+const getCategories = async (req, res) => {
+  const categories = await Category.find();
   return res.send(categories);
 };
 
-const getCategory = (req, res) => {
-  const id = parseInt(req.params.id);
-  const category = categories.find((c) => c.id === id);
+const getCategory = async (req, res) => {
+  const category = await Category.findById(req.params.id);
 
   if (!category) {
-    return res.status(404).send(`Error: Category Id ${id} not found`);
+    return res
+      .status(404)
+      .send(`Error: Category Id ${req.params.id} not found`);
   }
 
   return res.send(category);
 };
 
-const createCategory = (req, res) => {
-  const category = {
-    id: categories.length + 1,
+const createCategory = async (req, res) => {
+  const category = new Category({
     name: req.body.name,
     description: req.body.description,
-  };
-  categories.push(category);
-  res.set("Location", `${req.baseUrl}/${category.id}`);
-  return res.status(201).send(category);
+  });
+
+  const categoryResult = await category.save();
+
+  res.set("Location", `${req.baseUrl}/${categoryResult.id}`);
+  return res.status(201).send(categoryResult);
 };
 
-const updateCategory = (req, res) => {
-  const id = parseInt(req.params.id);
-  const category = categories.find((c) => c.id === id);
+const updateCategory = async (req, res) => {
+  const category = await Category.findById(req.params.id);
 
   if (!category) {
-    return res.status(404).send(`Error: Category Id ${id} not found`);
+    return res
+      .status(404)
+      .send(`Error: Category Id ${req.params.id} not found`);
   }
 
   category.name = req.body.name;
   category.description = req.body.description;
 
-  return res.send(category);
+  const categoryResult = await category.save();
+
+  return res.send(categoryResult);
 };
 
-const deleteCategory = (req, res) => {
-  const id = parseInt(req.params.id);
-  const category = categories.find((c) => c.id === id);
+const deleteCategory = async (req, res) => {
+  const category = await Category.findOneAndDelete({ _id: req.params.id });
 
   if (!category) {
-    return res.status(404).send(`Error: Category Id ${id} not found`);
+    return res
+      .status(404)
+      .send(`Error: Category Id ${req.params.id} not found`);
   }
-
-  const index = categories.indexOf(category);
-  categories.splice(index, 1);
 
   return res.send(category);
 };
