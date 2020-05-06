@@ -8,7 +8,7 @@ const piesController = require("../controllers/piesController");
  * /api/pies:
  *    get:
  *      tags:
- *          - Get Pies
+ *          - Pies
  *      summary: Returns all pies
  *      consumes:
  *        - application/json
@@ -25,13 +25,14 @@ router.get("/", (req, res) => {
  * /api/pies/{id}:
  *    get:
  *      tags:
- *          - Get Pie
+ *          - Pies
  *      summary: Returns pie with specific id
  *      consumes:
  *        - application/json
  *      parameters:
  *        - name: id
  *          in: path
+ *          required: true
  *          schema:
  *            type: object
  *            properties:
@@ -52,9 +53,8 @@ router.get("/:id", (req, res) => {
  * /api/pies:
  *    post:
  *      tags:
- *          - Create Category
- *      summary: Returns a newly created category
- *      description: Returns a newly created category
+ *          - Pies
+ *      summary: Returns a newly created pie
  *      consumes:
  *        - application/json
  *      parameters:
@@ -94,13 +94,14 @@ router.post("/", (req, res) => {
  * /api/pies/{id}:
  *    put:
  *      tags:
- *          - Update Pie
+ *          - Pies
  *      summary: Updates and returns updated pie with specific id
  *      consumes:
  *        - application/json
  *      parameters:
  *        - name: id
  *          in: path
+ *          required: true
  *          schema:
  *            type: object
  *            properties:
@@ -144,13 +145,14 @@ router.put("/:id", (req, res) => {
  * /api/pies/{id}:
  *    delete:
  *      tags:
- *          - Delete Pie
+ *          - Pies
  *      summary: Deletes and returns deleted pie with specific id
  *      consumes:
  *        - application/json
  *      parameters:
  *        - name: id
  *          in: path
+ *          required: true
  *          schema:
  *            type: object
  *            properties:

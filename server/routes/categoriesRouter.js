@@ -8,7 +8,7 @@ const categoriesController = require("../controllers/categoriesController");
  * /api/categories:
  *    get:
  *      tags:
- *          - Get Categories
+ *          - Categories
  *      summary: Returns all categories
  *      consumes:
  *        - application/json
@@ -25,13 +25,14 @@ router.get("/", (req, res) => {
  * /api/categories/{id}:
  *    get:
  *      tags:
- *          - Get Category
+ *          - Categories
  *      summary: Returns category with specific id
  *      consumes:
  *        - application/json
  *      parameters:
  *        - name: id
  *          in: path
+ *          required: true
  *          schema:
  *            type: object
  *            properties:
@@ -52,9 +53,8 @@ router.get("/:id", (req, res) => {
  * /api/categories:
  *    post:
  *      tags:
- *          - Create Category
+ *          - Categories
  *      summary: Returns a newly created category
- *      description: Returns a newly created category
  *      consumes:
  *        - application/json
  *      parameters:
@@ -80,13 +80,14 @@ router.post("/", (req, res) => {
  * /api/categories/{id}:
  *    put:
  *      tags:
- *          - Update Category
+ *          - Categories
  *      summary: Updates and returns updated category with specific id
  *      consumes:
  *        - application/json
  *      parameters:
  *        - name: id
  *          in: path
+ *          required: true
  *          schema:
  *            type: object
  *            properties:
@@ -116,13 +117,14 @@ router.put("/:id", (req, res) => {
  * /api/categories/{id}:
  *    delete:
  *      tags:
- *          - Delete Category
+ *          - Categories
  *      summary: Deletes and returns deleted category with specific id
  *      consumes:
  *        - application/json
  *      parameters:
  *        - name: id
  *          in: path
+ *          required: true
  *          schema:
  *            type: object
  *            properties:
