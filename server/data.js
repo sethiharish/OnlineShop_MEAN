@@ -1,3 +1,24 @@
+const banners = [
+  {
+    id: 1,
+    name: "Carousel1",
+    description: "We sell the best pies in the town!",
+    imageUrl: "/assets/images/carousel1.jpg",
+  },
+  {
+    id: 2,
+    name: "Carousel2",
+    description: "We sell the best pies in the town!",
+    imageUrl: "/assets/images/carousel2.jpg",
+  },
+  {
+    id: 3,
+    name: "Carousel3",
+    description: "We sell the best pies in the town!",
+    imageUrl: "/assets/images/carousel3.jpg",
+  },
+];
+
 const categories = [
   {
     id: 1,
@@ -26,8 +47,8 @@ const pies = [
       "Icing carrot cake jelly-o cheesecake. Sweet roll marzipan marshmallow toffee brownie brownie candy tootsie roll. Chocolate cake gingerbread tootsie roll oat cake pie chocolate bar cookie dragée brownie. Lollipop cotton candy cake bear claw oat cake. Dragée candy canes dessert tart. Marzipan dragée gummies lollipop jujubes chocolate bar candy canes. Icing gingerbread chupa chups cotton candy cookie sweet icing bonbon gummies. Gummies lollipop brownie biscuit danish chocolate cake. Danish powder cookie macaroon chocolate donut tart. Carrot cake dragée croissant lemon drops liquorice lemon drops cookie lollipop toffee. Carrot cake carrot cake liquorice sugar plum topping bonbon pie muffin jujubes. Jelly pastry wafer tart caramels bear claw. Tiramisu tart pie cake danish lemon drops. Brownie cupcake dragée gummies.",
     inStock: true,
     isPieOfTheWeek: true,
-    imageUrl: "/images/pies/applepie.jpg",
-    thumbnailImageUrl: "/images/pies/thumbnails/applepiesmall.jpg",
+    imageUrl: "/assets/images/pies/applepie.jpg",
+    thumbnailImageUrl: "/assets/images/pies/thumbnails/applepiesmall.jpg",
     categoryId: 1,
   },
   {
@@ -39,8 +60,8 @@ const pies = [
       "Icing carrot cake jelly-o cheesecake. Sweet roll marzipan marshmallow toffee brownie brownie candy tootsie roll. Chocolate cake gingerbread tootsie roll oat cake pie chocolate bar cookie dragée brownie. Lollipop cotton candy cake bear claw oat cake. Dragée candy canes dessert tart. Marzipan dragée gummies lollipop jujubes chocolate bar candy canes. Icing gingerbread chupa chups cotton candy cookie sweet icing bonbon gummies. Gummies lollipop brownie biscuit danish chocolate cake. Danish powder cookie macaroon chocolate donut tart. Carrot cake dragée croissant lemon drops liquorice lemon drops cookie lollipop toffee. Carrot cake carrot cake liquorice sugar plum topping bonbon pie muffin jujubes. Jelly pastry wafer tart caramels bear claw. Tiramisu tart pie cake danish lemon drops. Brownie cupcake dragée gummies.",
     inStock: true,
     isPieOfTheWeek: true,
-    imageUrl: "/images/pies/pumpkinpie.jpg",
-    thumbnailImageUrl: "/images/pies/thumbnails/pumpkinpiesmall.jpg",
+    imageUrl: "/assets/images/pies/pumpkinpie.jpg",
+    thumbnailImageUrl: "/assets/images/pies/thumbnails/pumpkinpiesmall.jpg",
     categoryId: 3,
   },
   {
@@ -52,8 +73,9 @@ const pies = [
       "Icing carrot cake jelly-o cheesecake. Sweet roll marzipan marshmallow toffee brownie brownie candy tootsie roll. Chocolate cake gingerbread tootsie roll oat cake pie chocolate bar cookie dragée brownie. Lollipop cotton candy cake bear claw oat cake. Dragée candy canes dessert tart. Marzipan dragée gummies lollipop jujubes chocolate bar candy canes. Icing gingerbread chupa chups cotton candy cookie sweet icing bonbon gummies. Gummies lollipop brownie biscuit danish chocolate cake. Danish powder cookie macaroon chocolate donut tart. Carrot cake dragée croissant lemon drops liquorice lemon drops cookie lollipop toffee. Carrot cake carrot cake liquorice sugar plum topping bonbon pie muffin jujubes. Jelly pastry wafer tart caramels bear claw. Tiramisu tart pie cake danish lemon drops. Brownie cupcake dragée gummies.",
     inStock: true,
     isPieOfTheWeek: false,
-    imageUrl: "/images/pies/christmasapplepie.jpg",
-    thumbnailImageUrl: "/images/pies/thumbnails/christmasapplepiesmall.jpg",
+    imageUrl: "/assets/images/pies/christmasapplepie.jpg",
+    thumbnailImageUrl:
+      "/assets/images/pies/thumbnails/christmasapplepiesmall.jpg",
     categoryId: 3,
   },
   {
@@ -65,8 +87,9 @@ const pies = [
       "Icing carrot cake jelly-o cheesecake. Sweet roll marzipan marshmallow toffee brownie brownie candy tootsie roll. Chocolate cake gingerbread tootsie roll oat cake pie chocolate bar cookie dragée brownie. Lollipop cotton candy cake bear claw oat cake. Dragée candy canes dessert tart. Marzipan dragée gummies lollipop jujubes chocolate bar candy canes. Icing gingerbread chupa chups cotton candy cookie sweet icing bonbon gummies. Gummies lollipop brownie biscuit danish chocolate cake. Danish powder cookie macaroon chocolate donut tart. Carrot cake dragée croissant lemon drops liquorice lemon drops cookie lollipop toffee. Carrot cake carrot cake liquorice sugar plum topping bonbon pie muffin jujubes. Jelly pastry wafer tart caramels bear claw. Tiramisu tart pie cake danish lemon drops. Brownie cupcake dragée gummies.",
     inStock: false,
     isPieOfTheWeek: false,
-    imageUrl: "/images/pies/strawberrycheesecake.jpg",
-    thumbnailImageUrl: "/images/pies/thumbnails/strawberrycheesecakesmall.jpg",
+    imageUrl: "/assets/images/pies/strawberrycheesecake.jpg",
+    thumbnailImageUrl:
+      "/assets/images/pies/thumbnails/strawberrycheesecakesmall.jpg",
     categoryId: 2,
   },
   {
@@ -78,8 +101,8 @@ const pies = [
       "Icing carrot cake jelly-o cheesecake. Sweet roll marzipan marshmallow toffee brownie brownie candy tootsie roll. Chocolate cake gingerbread tootsie roll oat cake pie chocolate bar cookie dragée brownie. Lollipop cotton candy cake bear claw oat cake. Dragée candy canes dessert tart. Marzipan dragée gummies lollipop jujubes chocolate bar candy canes. Icing gingerbread chupa chups cotton candy cookie sweet icing bonbon gummies. Gummies lollipop brownie biscuit danish chocolate cake. Danish powder cookie macaroon chocolate donut tart. Carrot cake dragée croissant lemon drops liquorice lemon drops cookie lollipop toffee. Carrot cake carrot cake liquorice sugar plum topping bonbon pie muffin jujubes. Jelly pastry wafer tart caramels bear claw. Tiramisu tart pie cake danish lemon drops. Brownie cupcake dragée gummies.",
     inStock: true,
     isPieOfTheWeek: false,
-    imageUrl: "/images/pies/cheesecake.jpg",
-    thumbnailImageUrl: "/images/pies/thumbnails/cheesecakesmall.jpg",
+    imageUrl: "/assets/images/pies/cheesecake.jpg",
+    thumbnailImageUrl: "/assets/images/pies/thumbnails/cheesecakesmall.jpg",
     categoryId: 2,
   },
   {
@@ -91,8 +114,8 @@ const pies = [
       "Icing carrot cake jelly-o cheesecake. Sweet roll marzipan marshmallow toffee brownie brownie candy tootsie roll. Chocolate cake gingerbread tootsie roll oat cake pie chocolate bar cookie dragée brownie. Lollipop cotton candy cake bear claw oat cake. Dragée candy canes dessert tart. Marzipan dragée gummies lollipop jujubes chocolate bar candy canes. Icing gingerbread chupa chups cotton candy cookie sweet icing bonbon gummies. Gummies lollipop brownie biscuit danish chocolate cake. Danish powder cookie macaroon chocolate donut tart. Carrot cake dragée croissant lemon drops liquorice lemon drops cookie lollipop toffee. Carrot cake carrot cake liquorice sugar plum topping bonbon pie muffin jujubes. Jelly pastry wafer tart caramels bear claw. Tiramisu tart pie cake danish lemon drops. Brownie cupcake dragée gummies.",
     inStock: true,
     isPieOfTheWeek: false,
-    imageUrl: "/images/pies/cranberrypie.jpg",
-    thumbnailImageUrl: "/images/pies/thumbnails/cranberrypiesmall.jpg",
+    imageUrl: "/assets/images/pies/cranberrypie.jpg",
+    thumbnailImageUrl: "/assets/images/pies/thumbnails/cranberrypiesmall.jpg",
     categoryId: 3,
   },
   {
@@ -104,8 +127,8 @@ const pies = [
       "Icing carrot cake jelly-o cheesecake. Sweet roll marzipan marshmallow toffee brownie brownie candy tootsie roll. Chocolate cake gingerbread tootsie roll oat cake pie chocolate bar cookie dragée brownie. Lollipop cotton candy cake bear claw oat cake. Dragée candy canes dessert tart. Marzipan dragée gummies lollipop jujubes chocolate bar candy canes. Icing gingerbread chupa chups cotton candy cookie sweet icing bonbon gummies. Gummies lollipop brownie biscuit danish chocolate cake. Danish powder cookie macaroon chocolate donut tart. Carrot cake dragée croissant lemon drops liquorice lemon drops cookie lollipop toffee. Carrot cake carrot cake liquorice sugar plum topping bonbon pie muffin jujubes. Jelly pastry wafer tart caramels bear claw. Tiramisu tart pie cake danish lemon drops. Brownie cupcake dragée gummies.",
     inStock: true,
     isPieOfTheWeek: false,
-    imageUrl: "/images/pies/strawberrypie.jpg",
-    thumbnailImageUrl: "/images/pies/thumbnails/strawberrypiesmall.jpg",
+    imageUrl: "/assets/images/pies/strawberrypie.jpg",
+    thumbnailImageUrl: "/assets/images/pies/thumbnails/strawberrypiesmall.jpg",
     categoryId: 1,
   },
   {
@@ -117,8 +140,8 @@ const pies = [
       "Icing carrot cake jelly-o cheesecake. Sweet roll marzipan marshmallow toffee brownie brownie candy tootsie roll. Chocolate cake gingerbread tootsie roll oat cake pie chocolate bar cookie dragée brownie. Lollipop cotton candy cake bear claw oat cake. Dragée candy canes dessert tart. Marzipan dragée gummies lollipop jujubes chocolate bar candy canes. Icing gingerbread chupa chups cotton candy cookie sweet icing bonbon gummies. Gummies lollipop brownie biscuit danish chocolate cake. Danish powder cookie macaroon chocolate donut tart. Carrot cake dragée croissant lemon drops liquorice lemon drops cookie lollipop toffee. Carrot cake carrot cake liquorice sugar plum topping bonbon pie muffin jujubes. Jelly pastry wafer tart caramels bear claw. Tiramisu tart pie cake danish lemon drops. Brownie cupcake dragée gummies.",
     inStock: true,
     isPieOfTheWeek: true,
-    imageUrl: "/images/pies/rhubarbpie.jpg",
-    thumbnailImageUrl: "/images/pies/thumbnails/rhubarbpiesmall.jpg",
+    imageUrl: "/assets/images/pies/rhubarbpie.jpg",
+    thumbnailImageUrl: "/assets/images/pies/thumbnails/rhubarbpiesmall.jpg",
     categoryId: 1,
   },
   {
@@ -130,8 +153,8 @@ const pies = [
       "Icing carrot cake jelly-o cheesecake. Sweet roll marzipan marshmallow toffee brownie brownie candy tootsie roll. Chocolate cake gingerbread tootsie roll oat cake pie chocolate bar cookie dragée brownie. Lollipop cotton candy cake bear claw oat cake. Dragée candy canes dessert tart. Marzipan dragée gummies lollipop jujubes chocolate bar candy canes. Icing gingerbread chupa chups cotton candy cookie sweet icing bonbon gummies. Gummies lollipop brownie biscuit danish chocolate cake. Danish powder cookie macaroon chocolate donut tart. Carrot cake dragée croissant lemon drops liquorice lemon drops cookie lollipop toffee. Carrot cake carrot cake liquorice sugar plum topping bonbon pie muffin jujubes. Jelly pastry wafer tart caramels bear claw. Tiramisu tart pie cake danish lemon drops. Brownie cupcake dragée gummies.",
     inStock: false,
     isPieOfTheWeek: false,
-    imageUrl: "/images/pies/peachpie.jpg",
-    thumbnailImageUrl: "/images/pies/thumbnails/peachpiesmall.jpg",
+    imageUrl: "/assets/images/pies/peachpie.jpg",
+    thumbnailImageUrl: "/assets/images/pies/thumbnails/peachpiesmall.jpg",
     categoryId: 1,
   },
   {
@@ -143,8 +166,8 @@ const pies = [
       "Icing carrot cake jelly-o cheesecake. Sweet roll marzipan marshmallow toffee brownie brownie candy tootsie roll. Chocolate cake gingerbread tootsie roll oat cake pie chocolate bar cookie dragée brownie. Lollipop cotton candy cake bear claw oat cake. Dragée candy canes dessert tart. Marzipan dragée gummies lollipop jujubes chocolate bar candy canes. Icing gingerbread chupa chups cotton candy cookie sweet icing bonbon gummies. Gummies lollipop brownie biscuit danish chocolate cake. Danish powder cookie macaroon chocolate donut tart. Carrot cake dragée croissant lemon drops liquorice lemon drops cookie lollipop toffee. Carrot cake carrot cake liquorice sugar plum topping bonbon pie muffin jujubes. Jelly pastry wafer tart caramels bear claw. Tiramisu tart pie cake danish lemon drops. Brownie cupcake dragée gummies.",
     inStock: true,
     isPieOfTheWeek: false,
-    imageUrl: "/images/pies/cherrypie.jpg",
-    thumbnailImageUrl: "/images/pies/thumbnails/cherrypiesmall.jpg",
+    imageUrl: "/assets/images/pies/cherrypie.jpg",
+    thumbnailImageUrl: "/assets/images/pies/thumbnails/cherrypiesmall.jpg",
     categoryId: 1,
   },
   {
@@ -156,13 +179,15 @@ const pies = [
       "Icing carrot cake jelly-o cheesecake. Sweet roll marzipan marshmallow toffee brownie brownie candy tootsie roll. Chocolate cake gingerbread tootsie roll oat cake pie chocolate bar cookie dragée brownie. Lollipop cotton candy cake bear claw oat cake. Dragée candy canes dessert tart. Marzipan dragée gummies lollipop jujubes chocolate bar candy canes. Icing gingerbread chupa chups cotton candy cookie sweet icing bonbon gummies. Gummies lollipop brownie biscuit danish chocolate cake. Danish powder cookie macaroon chocolate donut tart. Carrot cake dragée croissant lemon drops liquorice lemon drops cookie lollipop toffee. Carrot cake carrot cake liquorice sugar plum topping bonbon pie muffin jujubes. Jelly pastry wafer tart caramels bear claw. Tiramisu tart pie cake danish lemon drops. Brownie cupcake dragée gummies.",
     inStock: true,
     isPieOfTheWeek: false,
-    imageUrl: "/images/pies/blueberrycheesecake.jpg",
-    thumbnailImageUrl: "/images/pies/thumbnails/blueberrycheesecakesmall.jpg",
+    imageUrl: "/assets/images/pies/blueberrycheesecake.jpg",
+    thumbnailImageUrl:
+      "/assets/images/pies/thumbnails/blueberrycheesecakesmall.jpg",
     categoryId: 2,
   },
 ];
 
 module.exports = {
+  banners,
   categories,
   pies,
 };

@@ -1,3 +1,4 @@
+const Banner = require("./models/bannerModel");
 const Category = require("./models/categoryModel");
 const Pie = require("./models/pieModel");
 
@@ -11,13 +12,17 @@ mongoose
   .catch((error) => debugDB("Error connecting to Database: ", error));
 
 async function purgeDB() {
-  const piesCount = await Pie.find().count();
+  const piesCount = await Pie.find().countDocuments();
   await Pie.deleteMany();
   debugDB(`Purged Pie Data. Count = ${piesCount}.`);
 
-  const categoriesCount = await Category.find().count();
+  const categoriesCount = await Category.find().countDocuments();
   await Category.deleteMany();
   debugDB(`Purged Category Data. Count = ${categoriesCount}.`);
+
+  const bannersCount = await Banner.find().countDocuments();
+  await Banner.deleteMany();
+  debugDB(`Purged Banner Data. Count = ${bannersCount}.`);
 }
 
 debugDB("Database purging starting...");

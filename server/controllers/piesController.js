@@ -4,7 +4,12 @@ const Category = require("../models/categoryModel");
 
 const getPies = async (req, res) => {
   try {
-    const pies = await Pie.find();
+    const query =
+      req.query.isPieOfTheWeek &&
+      req.query.isPieOfTheWeek.trim().toLowerCase() === "true"
+        ? { isPieOfTheWeek: true }
+        : {};
+    const pies = await Pie.find(query);
     return res.send(pies);
   } catch (error) {
     debug(error);

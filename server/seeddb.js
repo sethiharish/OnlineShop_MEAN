@@ -1,4 +1,5 @@
-const { pies, categories } = require("./data");
+const { banners, categories, pies } = require("./data");
+const Banner = require("./models/bannerModel");
 const Category = require("./models/categoryModel");
 const Pie = require("./models/pieModel");
 
@@ -12,8 +13,19 @@ mongoose
   .catch((error) => debugDB("Error connecting to Database: ", error));
 
 async function seedDB() {
+  debugDB(`Seeding Banner Data. Count = ${banners.length}.`);
   debugDB(`Seeding Category Data. Count = ${categories.length}.`);
   debugDB(`Seeding Pie Data. Count = ${pies.length}.`);
+
+  banners.forEach(async (b) => {
+    const banner = new Banner({
+      name: b.name,
+      description: b.description,
+      imageUrl: b.imageUrl,
+    });
+
+    await banner.save();
+  });
 
   categories.forEach(async (c) => {
     const category = new Category({
