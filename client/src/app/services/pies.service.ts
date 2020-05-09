@@ -13,4 +13,12 @@ export class PiesService {
   getPiesOfTheWeek(): Observable<Pie[]> {
     return this.http.get<Pie[]>(this.api + "?isPieOfTheWeek=true");
   }
+
+  getPies(): Observable<Pie[]> {
+    return this.http.get<Pie[]>(this.api);
+  }
+
+  getPieById(id: string): Observable<Pie> {
+    return this.http.get<Pie>(`${this.api}/${id}`);
+  }
 }

@@ -1,6 +1,6 @@
 export class Pie {
   constructor(
-    public id: number,
+    public _id: string,
     public name: string,
     public price: number,
     public shortDescription: string,
@@ -9,7 +9,7 @@ export class Pie {
     public isPieOfTheWeek: boolean,
     public imageUrl: string,
     public thumbnailImageUrl: string,
-    public categoryId: number,
+    public categoryId: string,
     public categoryName: string
   ) {}
 }

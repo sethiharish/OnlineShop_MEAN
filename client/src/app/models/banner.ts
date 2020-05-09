@@ -1,6 +1,6 @@
 export class Banner {
   constructor(
-    public id: number,
+    public _id: string,
     public name: string,
     public description: string,
     public imageUrl: string

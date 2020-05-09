@@ -5,7 +5,7 @@
     [title]="pie.name"
     [alt]="pie.name"
   />
-
+  <a [routerLink]="['/pies', pie._id]">{{ pie.name }}</a>
   <span class="float-right">${{ pie.price }}</span>
   <p>{{ pie.shortDescription }}</p>
   <button class="btn btn-danger">

@@ -11,7 +11,7 @@ import { Pie } from "../../models/pie";
 })
 export class HomeComponent implements OnInit {
   banners: Banner[];
-  selectedBanner: Banner = { id: 0, name: "", imageUrl: "", description: "" };
+  selectedBanner: Banner = new Banner("", "", "", "");
   pies: Pie[];
 
   constructor(
