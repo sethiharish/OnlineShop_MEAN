@@ -1,0 +1,14 @@
+<div class="px-4 my-2">
+  <img
+    class="img-fluid"
+    [src]="pie.thumbnailImageUrl"
+    [title]="pie.name"
+    [alt]="pie.name"
+  />
+
+  <span class="float-right">${{ pie.price }}</span>
+  <p>{{ pie.shortDescription }}</p>
+  <button class="btn btn-danger">
+    Add to cart
+  </button>
+</div>

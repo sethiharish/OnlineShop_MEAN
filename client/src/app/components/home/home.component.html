@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="row border mb-2 py-2">
+      <div class="col-sm-12">
+        <img
+          class="img-fluid"
+          [src]="selectedBanner.imageUrl"
+          [alt]="selectedBanner.name"
+          [title]="selectedBanner.description"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="row pl-4">
+      <h5>Our pies of the week, specially picked for you!</h5>
+    </div>
+
+    <div class="row border mb-3">
+      <div *ngFor="let pie of pies" class="col-sm-4">
+        <app-pie-card [pie]="pie"></app-pie-card>
+      </div>
+    </div>
+  </div>
+</div>
