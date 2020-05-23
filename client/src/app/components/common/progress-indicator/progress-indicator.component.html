@@ -1,0 +1,12 @@
+<div class="btn btn-danger m-2 col-sm-{{ colSpan }}">
+  <span *ngIf="!spinnerOnly">
+    <ng-container *ngIf="message">{{ message }}</ng-container>
+    <ng-container *ngIf="!message && showComponentName && componentName"
+      >Loading {{ componentName }} data ...
+    </ng-container>
+    <ng-container *ngIf="!message && !showComponentName"
+      >Loading data ...
+    </ng-container>
+  </span>
+  <span class="spinner-border spinner-border-sm"></span>
+</div>

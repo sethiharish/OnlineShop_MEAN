@@ -1,0 +1,9 @@
+<div class="alert alert-danger col-sm-{{ colSpan }}">
+  <ng-container *ngIf="message">{{ message }}</ng-container>
+  <ng-container *ngIf="!message && showComponentName && componentName"
+    >Some error occured, while getting the {{ componentName }} data!
+  </ng-container>
+  <ng-container *ngIf="!message && !showComponentName"
+    >Some error occured, while getting the data!
+  </ng-container>
+</div>

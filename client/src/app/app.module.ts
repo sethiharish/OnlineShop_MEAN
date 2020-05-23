@@ -9,6 +9,9 @@ import { HomeComponent } from "./components/home/home.component";
 import { PieCardComponent } from "./components/pie-card/pie-card.component";
 import { PieDetailComponent } from "./components/pie-detail/pie-detail.component";
 import { NavbarComponent } from "./components/navbar/navbar.component";
+import { NotFoundComponent } from "./components/not-found/not-found.component";
+import { ProgressIndicatorComponent } from "./components/common/progress-indicator/progress-indicator.component";
+import { ErrorIndicatorComponent } from "./components/common/error-indicator/error-indicator.component";
 
 @NgModule({
   declarations: [
@@ -18,6 +21,9 @@ import { NavbarComponent } from "./components/navbar/navbar.component";
     PieCardComponent,
     PieDetailComponent,
     NavbarComponent,
+    NotFoundComponent,
+    ProgressIndicatorComponent,
+    ErrorIndicatorComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
