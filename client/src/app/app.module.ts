@@ -12,6 +12,7 @@ import { NavbarComponent } from "./components/navbar/navbar.component";
 import { NotFoundComponent } from "./components/not-found/not-found.component";
 import { ProgressIndicatorComponent } from "./components/common/progress-indicator/progress-indicator.component";
 import { ErrorIndicatorComponent } from "./components/common/error-indicator/error-indicator.component";
+import { ListGroupComponent } from "./components/common/list-group/list-group.component";
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { ErrorIndicatorComponent } from "./components/common/error-indicator/err
     NotFoundComponent,
     ProgressIndicatorComponent,
     ErrorIndicatorComponent,
+    ListGroupComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
