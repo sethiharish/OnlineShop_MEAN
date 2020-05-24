@@ -9,7 +9,11 @@ import { Pie } from "../../models/pie";
   styleUrls: ["./pie-detail.component.css"],
 })
 export class PieDetailComponent implements OnInit {
+  pieComponentName = "Pie";
   pie: Pie = new Pie("", "", 0, "", "", false, false, "", "", "", "");
+  pieDataLoading = true;
+  pieDataError: Error;
+
   constructor(
     private route: ActivatedRoute,
     private piesService: PiesService
@@ -18,12 +22,21 @@ export class PieDetailComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe((params) => {
       if (params.has("id")) {
-        this.piesService.getPieById(params.get("id")).subscribe((data) => {
-          if (data) {
-            this.pie = data;
+        this.piesService.getPieById(params.get("id")).subscribe(
+          (data) => {
+            if (data) {
+              this.pie = data;
+            }
+          },
+          (error: Error) => {
+            this.pieDataError = error;
           }
-        });
+        );
       }
     });
+  }
+
+  onPieLoad() {
+    this.pieDataLoading = false;
   }
 }

@@ -1,23 +1,46 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-3">
-      <ul class="list-group">
-        <li
-          *ngFor="let category of categories"
-          class="list-group-item"
-          [class.active]="selectedCategory === category"
-          (click)="onCategorySelected(category)"
-          style="cursor: pointer;"
-        >
-          {{ category.name }}
-        </li>
-      </ul>
+      <app-error-indicator
+        *ngIf="categoryDataError"
+        [componentName]="categoryComponentName"
+        [colSpan]="12"
+      ></app-error-indicator>
+      <app-progress-indicator
+        *ngIf="!categoryDataError && categoryDataLoading"
+        [componentName]="categoryComponentName"
+        [colSpan]="12"
+      ></app-progress-indicator>
+      <app-list-group
+        *ngIf="!categoryDataError && !categoryDataLoading"
+        (onItemSelected)="onCategorySelected($event)"
+        [items]="categories"
+        [selectedItem]="selectedCategory"
+      ></app-list-group>
     </div>
 
     <div class="col-sm-9">
-      <div class="row border">
-        <div class="col-sm-4" *ngFor="let pie of filteredPies">
-          <app-pie-card [pie]="pie"></app-pie-card>
+      <app-error-indicator
+        *ngIf="pieDataError"
+        [componentName]="pieComponentName"
+      ></app-error-indicator>
+      <app-progress-indicator
+        *ngIf="!pieDataError && pieDataLoading"
+        [componentName]="pieComponentName"
+      ></app-progress-indicator>
+      <div class="row border" *ngIf="!pieDataError && !pieDataLoading">
+        <div class="col-sm-4 my-1" *ngFor="let pie of filteredPies">
+          <app-progress-indicator
+            class="col-sm-12"
+            *ngIf="!pie.isLoaded"
+            [componentName]="pieComponentName"
+            spinnerOnly="true"
+          ></app-progress-indicator>
+          <app-pie-card
+            [pie]="pie"
+            (onLoad)="onPieLoad($event)"
+            [hidden]="!pie.isLoaded"
+          ></app-pie-card>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 import { Pie } from "src/app/models/pie";
 
 @Component({
@@ -8,8 +8,13 @@ import { Pie } from "src/app/models/pie";
 })
 export class PieCardComponent implements OnInit {
   @Input("pie") pie: Pie;
+  @Output("onLoad") onLoad = new EventEmitter();
 
   constructor() {}
 
   ngOnInit() {}
+
+  onImageLoad() {
+    this.onLoad.emit(this.pie);
+  }
 }

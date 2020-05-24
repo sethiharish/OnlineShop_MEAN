@@ -4,6 +4,7 @@
     [src]="pie.thumbnailImageUrl"
     [title]="pie.name"
     [alt]="pie.name"
+    (load)="onImageLoad()"
   />
   <a [routerLink]="['/pies', pie._id]">{{ pie.name }}</a>
   <span class="float-right">${{ pie.price }}</span>

@@ -1,12 +1,27 @@
 <div class="container">
   <div class="row">
-    <div class="row border mb-2 py-2">
+    <app-error-indicator
+      class="col-sm-12"
+      *ngIf="bannerDataError"
+      [componentName]="bannerComponentName"
+    ></app-error-indicator>
+    <app-progress-indicator
+      class="col-sm-12"
+      *ngIf="!bannerDataError && bannerDataLoading"
+      [componentName]="bannerComponentName"
+    ></app-progress-indicator>
+    <div
+      class="border mb-2 py-2"
+      *ngIf="!bannerDataError"
+      [hidden]="bannerDataLoading"
+    >
       <div class="col-sm-12">
         <img
           class="img-fluid"
           [src]="selectedBanner.imageUrl"
           [alt]="selectedBanner.name"
           [title]="selectedBanner.description"
+          (load)="onBannerLoad()"
         />
       </div>
     </div>
@@ -15,14 +30,34 @@
 
 <div class="container">
   <div class="row">
-    <div class="row pl-4">
-      <h5>Our pies of the week, specially picked for you!</h5>
-    </div>
+    <app-error-indicator
+      class="col-sm-12"
+      *ngIf="pieDataError"
+      [componentName]="pieComponentName"
+    ></app-error-indicator>
+    <app-progress-indicator
+      class="col-sm-12"
+      *ngIf="!pieDataError && pieDataLoading"
+      [componentName]="pieComponentName"
+    ></app-progress-indicator>
+  </div>
+  <div *ngIf="!pieDataError" class="row pl-4" [hidden]="pieDataLoading">
+    <h5>Our pies of the week, specially picked for you!</h5>
+  </div>
 
-    <div class="row border mb-3">
-      <div *ngFor="let pie of pies" class="col-sm-4">
-        <app-pie-card [pie]="pie"></app-pie-card>
-      </div>
+  <div *ngIf="!pieDataError" class="row border mb-3" [hidden]="pieDataLoading">
+    <div *ngFor="let pie of pies" class="col-sm-4">
+      <app-progress-indicator
+        class="col-sm-12"
+        *ngIf="!pie.isLoaded"
+        [componentName]="pieComponentName"
+        spinnerOnly="true"
+      ></app-progress-indicator>
+      <app-pie-card
+        [pie]="pie"
+        (onLoad)="onPieLoad($event)"
+        [hidden]="!pie.isLoaded"
+      ></app-pie-card>
     </div>
   </div>
 </div>
